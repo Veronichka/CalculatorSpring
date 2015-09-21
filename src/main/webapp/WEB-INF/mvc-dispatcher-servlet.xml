@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="com.calculator"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--<bean name="calcFilterBean" class="com.calculator.filter.CalculatorFilter">-->
+    <!--</bean>-->
+
+    <bean id="calculator" class="com.calculator.service.impl.CalculatorImpl">
+    </bean>
+
+    <bean id="commandAnalyzer" class="com.calculator.service.impl.CommandAnalyzerImpl">
+    </bean>
+
+    <bean id="variableMap" class="com.calculator.service.impl.VariableMapImpl">
+    </bean>
+
+    <bean id="parser" class="com.calculator.service.impl.CalcParserImpl">
+    </bean>
+
+    <bean id="syntaxAnalyzer" class="com.calculator.service.impl.SyntaxAnalyzerImpl">
+    </bean>
+
+</beans>

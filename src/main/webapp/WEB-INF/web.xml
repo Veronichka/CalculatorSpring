@@ -1,0 +1,52 @@
+<web-app version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<display-name>Spring MVC Application</display-name>
+
+	<!--<contex-param>-->
+		<!--<param-name>contexConfigLocation</param-name>-->
+		<!--<param-value>mvc-dispatcher-servlet.xml</param-value>-->
+	<!--</contex-param>-->
+
+	<!--<listener>-->
+		<!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+	<!--</listener>-->
+
+    <servlet>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>CalcFilter</filter-name>
+		<filter-class>com.calculator.filter.CalculatorFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>CalcFilter</filter-name>
+		<servlet-name>mvc-dispatcher</servlet-name>
+	</filter-mapping>
+
+	<!--<filter>-->
+		<!--<filter-name>CalcFilter</filter-name>-->
+		<!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+		<!--<init-param>-->
+			<!--<param-name>targetBeanName</param-name>-->
+			<!--<param-value>calcFilterBean</param-value>-->
+		<!--</init-param>-->
+	<!--</filter>-->
+
+	<!--<filter-mapping>-->
+		<!--<filter-name>CalcFilter</filter-name>-->
+		<!--<url-pattern>/</url-pattern>-->
+	<!--</filter-mapping>-->
+
+</web-app>
