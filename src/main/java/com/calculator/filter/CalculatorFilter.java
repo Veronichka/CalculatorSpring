@@ -37,7 +37,7 @@ public class CalculatorFilter implements Filter {
                 resp.getWriter().println("Bad syntax!");
             }
         }
-        chain.doFilter(req, resp);
+        else chain.doFilter(req, resp);
 
     }
     public void destroy() {
